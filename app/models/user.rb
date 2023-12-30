@@ -31,4 +31,5 @@ class User < ApplicationRecord
     # パスワードは、6文字以上での入力が必須であること
     # パスワードとパスワード（確認）は、値の一致が必須であること
   end
+  
 end
