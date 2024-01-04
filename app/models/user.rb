@@ -3,7 +3,6 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-
   # has_many :items
   # has_many :purchasers
 
@@ -31,5 +30,5 @@ class User < ApplicationRecord
     # パスワードは、6文字以上での入力が必須であること
     # パスワードとパスワード（確認）は、値の一致が必須であること
   end
-  
+
 end
