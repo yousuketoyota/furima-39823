@@ -14,7 +14,7 @@ class Item < ApplicationRecord
     validates :title
     validates :explanation
     validates :image
-    validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }, format: { with: /\A\d+\z/ }
+    validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, only_integer: true }
   end
 
   with_options numericality: { other_than: 1, message: 'must be selected' } do
