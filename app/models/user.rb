@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  # has_many :items
+  has_many :items
   # has_many :purchasers
 
   with_options presence: true do
@@ -21,14 +21,7 @@ class User < ApplicationRecord
     validates :first_name_kana, format: { with: /\A[ァ-ヶー]+\z/ }
 
     validates :birthday
-
-    # Deviseにデフォルトでバリデーションが備わっているため、テストのみ実施する
-    # メールアドレスが必須であること
-    # メールアドレスが一意性であること
-    # メールアドレスは、@を含む必要があること
-    # パスワードが必須であること
-    # パスワードは、6文字以上での入力が必須であること
-    # パスワードとパスワード（確認）は、値の一致が必須であること
+ 
   end
 
 end
