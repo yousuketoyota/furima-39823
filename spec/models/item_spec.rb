@@ -59,31 +59,31 @@ RSpec.describe Item, type: :model do
       it 'category_id:1以外' do
         @item.category_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include('Category must be selected')
+        expect(@item.errors.full_messages).to include("Category must be selected")
       end
 
       it 'condition_id:1以外' do
         @item.condition_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include('Condition must be selected')
+        expect(@item.errors.full_messages).to include("Condition must be selected")
       end
 
       it 'shipping_fee_id:1以外' do
         @item.shipping_fee_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include('Shipping fee must be selected')
+        expect(@item.errors.full_messages).to include("Shipping fee must be selected")
       end
 
       it 'shipping_source_id:1以外' do
         @item.shipping_source_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include('Shipping source must be selected')
+        expect(@item.errors.full_messages).to include("Shipping source must be selected")
       end
 
       it 'shipping_schedule_id:1以外' do
         @item.shipping_schedule_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include('Shipping schedule must be selected')
+        expect(@item.errors.full_messages).to include("Shipping schedule must be selected")
       end
 
       it 'user:必須' do
