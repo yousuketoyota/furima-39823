@@ -40,7 +40,13 @@ RSpec.describe PurchaserAddress, type: :model do
       it '都道府県が空だと保存できないこと' do
         @purchase_address.shipping_source_id = nil
         @purchase_address.valid?
-        expect(@purchase_address.errors.full_messages).to include("Shipping source can't be blank")
+        expect(@purchase_address.errors.full_messages).to include("Shipping source must be selected")
+      end
+
+      it 'shipping_source_idが1の場合は無効であること' do
+        @purchase_address.shipping_source_id = 1
+        @purchase_address.valid?
+        expect(@purchase_address.errors.full_messages).to include("Shipping source must be selected") 
       end
 
       it '市区町村が空だと保存できないこと' do
