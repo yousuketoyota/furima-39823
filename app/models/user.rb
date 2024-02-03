@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :items
-  # has_many :purchasers
+  has_many :purchasers
 
   with_options presence: true do
     validates :nickname
@@ -21,7 +21,5 @@ class User < ApplicationRecord
     validates :first_name_kana, format: { with: /\A[ァ-ヶー]+\z/ }
 
     validates :birthday
- 
   end
-
 end
