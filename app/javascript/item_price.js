@@ -1,9 +1,12 @@
 window.addEventListener('turbo:load', () => {
   const priceInput = document.getElementById("item-price");
   priceInput.addEventListener("input", () => {
+    const price = parseFloat(priceInput.value);
     const addTaxDom = document.getElementById("add-tax-price");
-    addTaxDom.innerHTML = Math.floor(priceInput.value * 0.1 );
-    const addPofitDom = document.getElementById("profit");
-    addPofitDom.innerHTML = Math.floor(priceInput.value - Math.floor(priceInput.value * 0.1 ))
+    const tax = Math.floor(price * 0.1);
+    addTaxDom.innerHTML = tax;
+    const addProfitDom = document.getElementById("profit");
+    const profit = Math.floor(price - tax);
+    addProfitDom.innerHTML = profit;
   });
 });
