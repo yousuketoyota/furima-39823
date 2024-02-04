@@ -1,12 +1,14 @@
-window.addEventListener('turbo:load', () => {
-  const priceInput = document.getElementById("item-price");
-  priceInput.addEventListener("input", () => {
-    const inputValue = priceInput.value;
-    const addTaxDom = document.getElementById("add-tax-price");
-    const profitDom = document.getElementById("profit");
-    // 入力した金額に販売手数料（10%）を掛ける計算をする処理
-    addTaxDom.innerHTML = Math.floor(inputValue * 0.1);
-    // 販売価格から販売手数料を引く処理
-    profitDom.innerHTML = inputValue - addTaxDom.innerHTML;
-  })
-});
+function price (){
+  const form = document.getElementById("item-price");
+  form.addEventListener("keyup", (e) => { // フォームに入力された時
+    const tax_price = document.getElementById("add-tax-price"); // 税率
+    const profit = document.getElementById("profit"); // 利益
+    const tax_price_num = Math.floor(form.value * 0.1);
+    const profit_num = Math.floor(form.value - tax_price_num);
+    tax_price.innerHTML = `${tax_price_num.toLocaleString()}`;
+    profit.innerHTML = `${profit_num.toLocaleString()}`;
+  });
+};
+ 
+window.addEventListener('turbo:load', price);
+window.addEventListener('turbo:render', price); // エラーハンドリング
