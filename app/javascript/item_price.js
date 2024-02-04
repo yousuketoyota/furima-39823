@@ -1,16 +1,12 @@
-function Price(){
-  const itemPrice = document.getElementById("item-price");
-  const addTaxPrice = document.getElementById("add-tax-price");
-  const profit = document.getElementById("profit");
-
-  itemPrice.addEventListener('input', function() {
-    const Price = itemPrice.value;
-
-    const Tax = Math.floor(Price * 0.1);
-    addTaxPrice.textContent = Tax;
-
-    const ProfitValue = Price - Tax;
-    profit.textContent = ProfitValue;
-  });
-};
-window.addEventListener('load', Price);
+window.addEventListener('turbo:load', () => {
+  const priceInput = document.getElementById("item-price");
+  priceInput.addEventListener("input", () => {
+    const inputValue = priceInput.value;
+    const addTaxDom = document.getElementById("add-tax-price");
+    const profitDom = document.getElementById("profit");
+    // 入力した金額に販売手数料（10%）を掛ける計算をする処理
+    addTaxDom.innerHTML = Math.floor(inputValue * 0.1);
+    // 販売価格から販売手数料を引く処理
+    profitDom.innerHTML = inputValue - addTaxDom.innerHTML;
+  })
+});
